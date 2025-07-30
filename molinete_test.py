@@ -240,7 +240,7 @@ class ZKTecoDevice:
                 operation_id,  # Operation ID
                 door_id,       # Door number
                 index,         # Address type (1=door output, 2=auxiliary output)
-                state,         # Opening time in seconds (3 seconds)
+                state,         # Opening time in seconds (5 seconds)
                 0,             # Reserved parameter
                 options        # Options (empty)
             )
@@ -303,7 +303,7 @@ def menu():
         print("1. Conectar al dispositivo")
         print("2. Obtener información del dispositivo")
         print("3. Leer tarjeta RFID")
-        print("4. Activar molinete (3 segundos)")
+        print("4. Activar molinete (5 segundos)")
         print("5. Probar comunicación")
         print("6. Desconectar")
         print("0. Salir")
@@ -318,7 +318,7 @@ def menu():
         elif opcion == "3":
             device.read_card()
         elif opcion == "4":
-            device.control_device(operation_id=1, door_id=1, index=1, state=3)
+            device.control_device(operation_id=1, door_id=1, index=1, state=5)
         elif opcion == "5":
             device.test_device_communication()
         elif opcion == "6":
